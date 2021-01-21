@@ -1,18 +1,17 @@
-# defines
-%global		build_timestamp %(date +"%Y%m%d%H%M")
-
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
 Version:	1.8.0
-Release:	1.%{build_timestamp}%{?dist}
-URL:		https://github.com/sems-server/%{name}
-#Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
+
+# defines
+%define		build_timestamp %(date +"%Y%m%d%H%M")
+%define		_unpackaged_files_terminate_build 0
+%define		_missing_doc_files_terminate_build 0
+
+Release:	%{build_timestamp}%{?dist}
+URL:            https://github.com/denyspozniak/sems-server/%{name}
+Source0:        https://github.com/denyspozniak/server-sems/archive/master.tar.gz
 
 License:	GPLv2+
-BuildRequires:	bcg729-devel
-BuildRequires:	cmake3
-BuildRequires:	codec2-devel
 BuildRequires:	flite-devel
 BuildRequires:	gcc-c++
 BuildRequires:	gsm-devel
@@ -26,12 +25,16 @@ BuildRequires:	mISDN-devel
 BuildRequires:	mysql++-devel
 BuildRequires:	openssl-devel
 BuildRequires:	opus-devel
-BuildRequires:	python-devel
-BuildRequires:	python3.10
-BuildRequires:	sip-devel
 BuildRequires:	spandsp-devel
 BuildRequires:	speex-devel
 BuildRequires:	systemd
+BuildRequires:	flite-devel
+BuildRequires:	python-devel
+BuildRequires:	sip-devel
+BuildRequires:	codec2-devel
+BuildRequires:	bcg729-devel
+BuildRequires:  cmake3
+BuildRequires:  lame-devel
 
 Requires(pre):  /usr/sbin/useradd
 Requires(post): systemd-units
@@ -221,10 +224,10 @@ mkdir cmake_build && cd cmake_build
 	-DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG \
 	-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
 	-DCMAKE_INSTALL_PREFIX:PATH=/usr \
-	-DINCLUDE_INSTALL_DIR:PATH=/usr/include \
-	-DLIB_INSTALL_DIR:PATH=/usr/lib64 \
-	-DSYSCONF_INSTALL_DIR:PATH=/etc \
-	-DSHARE_INSTALL_PREFIX:PATH=/usr/share \
+      	-DINCLUDE_INSTALL_DIR:PATH=/usr/include \
+      	-DLIB_INSTALL_DIR:PATH=/usr/lib64 \
+      	-DSYSCONF_INSTALL_DIR:PATH=/etc \
+      	-DSHARE_INSTALL_PREFIX:PATH=/usr/share \
 	-DLIB_SUFFIX=64 \
 	-DBUILD_SHARED_LIBS:BOOL=ON \
 	-DSEMS_USE_SPANDSP=yes \
@@ -352,13 +355,13 @@ getent passwd %{name} >/dev/null || \
 
 %doc README
 %doc core/plug-in/adpcm/README_G711
+%doc core/plug-in/stats/README.stats
 %doc doc/figures
 %doc doc/Howtostart_noproxy.txt
 %doc doc/Howtostart_simpleproxy.txt
 %doc doc/Howtostart_voicemail.txt
 %doc doc/CHANGELOG
 %doc doc/COPYING
-%doc doc/README.stats
 %doc doc/Readme.ann_b2b.txt
 %doc doc/Readme.announce_transfer.txt
 %doc doc/Readme.announcement.txt
@@ -390,10 +393,6 @@ getent passwd %{name} >/dev/null || \
 %{_sbindir}/%{name}-list-calls
 %{_sbindir}/%{name}-list-finished-calls
 %{_sbindir}/%{name}-logfile-callextract
-%{_sbindir}/%{name}-rtp-mux-get-max-frame-age-ms
-%{_sbindir}/%{name}-rtp-mux-get-mtu-threshold
-%{_sbindir}/%{name}-rtp-mux-set-max-frame-age-ms
-%{_sbindir}/%{name}-rtp-mux-set-mtu-threshold
 %{_sbindir}/%{name}-sbc-get-activeprofile
 %{_sbindir}/%{name}-sbc-get-regex-map-names
 %{_sbindir}/%{name}-sbc-list-profiles
@@ -499,7 +498,7 @@ getent passwd %{name} >/dev/null || \
 %{_libdir}/%{name}/plug-in/cc_bl_redis.so
 %{_libdir}/%{name}/plug-in/cc_call_timer.so
 %{_libdir}/%{name}/plug-in/cc_ctl.so
-%{_libdir}/%{name}/plug-in/cc_dsm.so
+#%{_libdir}/%{name}/plug-in/cc_dsm.so
 %{_libdir}/%{name}/plug-in/cc_pcalls.so
 %{_libdir}/%{name}/plug-in/cc_prepaid.so
 %{_libdir}/%{name}/plug-in/cc_registrar.so
@@ -660,3 +659,12 @@ getent passwd %{name} >/dev/null || \
 %config(noreplace) %{_sysconfdir}/%{name}/etc/xmlrpc2di.conf
 %doc doc/Readme.xmlrpc2di.txt
 %{_libdir}/%{name}/plug-in/xmlrpc2di.so
+
+
+%changelog
+
+
+
+
+
+
