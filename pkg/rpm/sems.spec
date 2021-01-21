@@ -18,7 +18,6 @@ BuildRequires:	gsm-devel
 BuildRequires:	hiredis-devel
 BuildRequires:	ilbc-devel
 BuildRequires:	lame-devel
-BuildRequires:	lame-devel
 BuildRequires:	libevent-devel
 BuildRequires:	libmpg123-devel
 BuildRequires:	libsamplerate-devel
