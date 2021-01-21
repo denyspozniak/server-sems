@@ -4,7 +4,8 @@
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
 Version:	1.7.0
-Release:	1.%{build_timestamp}%{?dist}
+#Release:	1.%{build_timestamp}%{?dist}
+Release:	%{build_timestamp}%{?dist}
 URL:            https://github.com/denyspozniak/server-sems/%{name}
 Source0:        https://github.com/denyspozniak/server-sems/archive/master.tar.gz
 
