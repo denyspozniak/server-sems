@@ -4,8 +4,8 @@ Version:	1.8.0
 
 # defines
 %define		build_timestamp %(date +"%Y%m%d%H%M")
-%define		_unpackaged_files_terminate_build 0
-%define		_missing_doc_files_terminate_build 0
+#%define		_unpackaged_files_terminate_build 0
+#%define		_missing_doc_files_terminate_build 0
 
 Release:	%{build_timestamp}%{?dist}
 URL:            https://github.com/denyspozniak/sems-server/%{name}
@@ -498,7 +498,7 @@ getent passwd %{name} >/dev/null || \
 %{_libdir}/%{name}/plug-in/cc_bl_redis.so
 %{_libdir}/%{name}/plug-in/cc_call_timer.so
 %{_libdir}/%{name}/plug-in/cc_ctl.so
-#%{_libdir}/%{name}/plug-in/cc_dsm.so
+%{_libdir}/%{name}/plug-in/cc_dsm.so
 %{_libdir}/%{name}/plug-in/cc_pcalls.so
 %{_libdir}/%{name}/plug-in/cc_prepaid.so
 %{_libdir}/%{name}/plug-in/cc_registrar.so
