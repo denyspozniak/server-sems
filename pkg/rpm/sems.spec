@@ -498,7 +498,7 @@ getent passwd %{name} >/dev/null || \
 %{_libdir}/%{name}/plug-in/cc_bl_redis.so
 %{_libdir}/%{name}/plug-in/cc_call_timer.so
 %{_libdir}/%{name}/plug-in/cc_ctl.so
-#%{_libdir}/%{name}/plug-in/cc_dsm.so
+%{_libdir}/%{name}/plug-in/cc_dsm.so
 %{_libdir}/%{name}/plug-in/cc_pcalls.so
 %{_libdir}/%{name}/plug-in/cc_prepaid.so
 %{_libdir}/%{name}/plug-in/cc_registrar.so
