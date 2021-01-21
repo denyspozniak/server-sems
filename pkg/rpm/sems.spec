@@ -27,7 +27,7 @@ BuildRequires:	mysql++-devel
 BuildRequires:	openssl-devel
 BuildRequires:	opus-devel
 BuildRequires:	python-devel
-#BuildRequires:	python2-devel
+BuildRequires:	python3.9
 BuildRequires:	sip-devel
 BuildRequires:	spandsp-devel
 BuildRequires:	speex-devel
