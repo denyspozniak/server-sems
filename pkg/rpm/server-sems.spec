@@ -1,5 +1,5 @@
 # defines
-%global		build_timestamp %(date +"%Y%m%d-%H%M")
+%global		build_timestamp %(date +"%Y%m%d%H%M")
 
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
