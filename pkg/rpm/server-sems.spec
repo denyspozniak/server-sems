@@ -213,7 +213,7 @@ XMLRPC servers.
 
 %prep
 %autosetup -p1
-#mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
+mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
 mkdir cmake_build && cd cmake_build
