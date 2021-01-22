@@ -1,5 +1,7 @@
 # defines
 %global		build_timestamp %(date +"%Y%m%d%H%M")
+%define		_unpackaged_files_terminate_build 0
+%define		_missing_doc_files_terminate_build 0
 
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
